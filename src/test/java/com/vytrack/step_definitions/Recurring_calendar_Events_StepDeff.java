@@ -49,4 +49,20 @@ dashboard.createEventButton.click();
         //aacahnges
     }
 
+    @Then("user delete the value on Repeat every box")
+    public void userDeleteTheValueOnRepeatEveryBox() {
+
+        calendar.checkRepeatBox.clear();
+
+    }
+
+    @Then("user should see error message {string}")
+    public void userShouldSeeErrorMessage(String expectedErrorMsg) {
+
+        String actualErrorMsg=calendar.errorMessage.getText();
+
+        Assert.assertEquals(expectedErrorMsg,actualErrorMsg);
+
+
+    }
 }
