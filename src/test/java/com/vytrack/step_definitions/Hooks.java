@@ -1,20 +1,22 @@
 package com.vytrack.step_definitions;
 
+import com.vytrack.utilities.BrowserUtils;
 import com.vytrack.utilities.Driver;
-import org.junit.After;
-import org.junit.Before;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.cucumber.java.BeforeStep;
 
 public class Hooks {
+@BeforeStep
+public void beforestep(){
+    BrowserUtils.sleep(1);
+}
 
-    @Before
-    public void setup(){
 
-    }
 
-    @After
-    public void tearDown() throws Exception {
-        Driver.closeDriver();
-    }
-
+@After
+    public void teardown(){
+    Driver.closeDriver();
+}
 
 }

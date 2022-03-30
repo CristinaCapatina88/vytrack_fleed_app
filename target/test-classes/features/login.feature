@@ -1,5 +1,5 @@
 Feature: user should be able to login and using correct credentials
-@wip
+
   Scenario Outline:
     Given user is on the login page
     When user enters username "<username>"

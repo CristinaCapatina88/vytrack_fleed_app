@@ -29,8 +29,14 @@ public class DashboardPage {
     @FindBy(xpath = "//a[@title='Create Calendar event']")
     public WebElement createEventButton;
 
-    public  void waitForPresenceOfElement(By by, long time){
-        new WebDriverWait(Driver.getDriver(), time).until(ExpectedConditions.presenceOfElementLocated(by));
+    public  void waitTillLoaderMaskDisappear() {
+        try {
+            WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 20);
+            WebElement loaderMask = Driver.getDriver().findElement(By.cssSelector("div[class='loader-mask shown']"));
+            wait.until(ExpectedConditions.invisibilityOf(loaderMask));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

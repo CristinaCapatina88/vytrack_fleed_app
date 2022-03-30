@@ -34,13 +34,12 @@ public class Login_StepDef {
     @When("user clicks the login button")
     public void user_clicks_the_login_button() {
        login.loginButton.click();
-       dashboard.waitForPresenceOfElement((By) dashboard.activitiesButton,10);
+       dashboard.waitTillLoaderMaskDisappear();
     }
     @Then("user should see {string} title")
     public void user_should_see_dashboard_page(String expectedtitle) {
        String actualTitle= Driver.getDriver().getTitle();
         Assert.assertEquals(expectedtitle,actualTitle);
-
     }
 
 
